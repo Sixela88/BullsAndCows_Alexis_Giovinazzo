@@ -1,0 +1,193 @@
+<!--Document au format html5-->
+<!--Introduction au javascript html5-->
+<!--Javascript lourd pour la connexion-->
+<!--Language à typage faible et language client-->
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8" /> <!--Norme de caractere-->
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Bulls And Cows</title>
+	</head>
+
+	<script language="javascript" type="text/javascript">
+
+	var NombreATrouver = [1,2,3,4];
+	var Essais = 0;
+
+	    function NombreAléatoire(){
+	    	var Chiffres = [1,2,3,4,5,6,7,8,9];
+	    	var i;
+	    	var Nb;
+	    	var removed;
+
+	    	Essais = 0;
+
+	    	for (i=0;i<4;i++){ // Nombre aléatoire à trouver
+	    		Nb = Math.floor((Math.random() * (8-i)) + 1);
+	    		removed = Chiffres.splice(Nb,1);
+	    		NombreATrouver[i] = removed;
+	    	}
+	    }
+
+	   	function VerifSaisie(){
+	        var inputSs = document.getElementsByName('Ss'),
+	            inputSsLength = inputSs.length;
+	        var numbercase = document.getElementsByName('n1');
+			var match = document.getElementsByName('m1');
+			var exist = document.getElementsByName('e1');
+	        var gagne = false;
+	        var nbm = 0;
+	        var nbe = 0;
+
+	        Essais = Essais + 1;
+
+	        for (var i = 0; i < inputSsLength; i++){ //Affichage
+	    		numbercase = (inputSs[i].value);
+	    		//numbercase = inputSs[i].value;
+	    	}
+
+	        for (i = 0; i < inputSsLength; i++){
+
+	        	if (inputSs[i].value === NombreATrouver[i]){
+	        		nbm = nbm + 1;
+	        		
+	        	}
+
+	        match.value = nbm; 
+
+	        	for (var j = 0; j < inputSsLength; j++){
+	        		if ((inputSs[i].value === NombreATrouver[j]) && (i!=j)){
+	        			nbe = nbe + 1;
+	        		}
+	        	}
+
+	        exist.value = nbe;
+	        }
+
+	        if (nbm == 4){
+	        	gagne = true;
+	     	}
+
+	     	if (Essais == 7){
+	     		alert("Vous avez perdu ! Appuyer sur Nouveaun pour recommencer.");
+	     	}
+
+	     	if (gagne = true){
+	     		alert("Vous avez gagné !");
+	     	} 
+	   	}
+
+	   	function keyAnalyser(){
+	   		var inputSs = document.getElementsByName('Ss'),
+	   		inputSsLength = inputSs.length; //On récupère la balise
+
+		    for (var i = 0; i < inputSsLength; i++){
+				if (isNaN(parseFloat(inputSs[i].value))){ //Au cas ou la valeur n'est pas un nombre
+					inputSs[i].value = ""; // La valeur devient nulle
+				}
+			}
+
+			for (var i = 0; i < inputSsLength; i++){ // Si 2 chiffres saisis sont identiques à la valeur devient nulle
+				for (var j= 0; j < inputSsLength; j++){
+					if ((inputSs[i].value == inputSs[j].value) && (i!=j)){
+						inputSs[i].value = ""; 
+					}
+				}
+	    	}
+		}
+	       
+	    </script>
+
+		<noscript> <!--Si java est desactivé alors...-->
+			Java desactivé
+		</noscript>
+
+	<body>
+
+	<header>
+		<p><img src="images/vache.jpg" alt="Vache"></p>
+		<p><img src="images/taureau.png" class="img2" alt="taureau"></p>
+		<h1>Jeu : Bulls And Cows</h1>
+	</header>
+
+
+	<section>
+		<table id="main" cellpadding="0" cellspacing="0" border="1" align="center">
+		<tr>
+
+		<td>
+		        <table cellpadding="2" cellspacing="0" border="0" align="center">
+		        <tr class="head"><td>Guessed</td><td>Exist</td><td>Match</td></tr>
+		        <tr>
+			        <td><input type="text" class="num" name="n1" size="4" maxlength="4"/></td>
+			        <td><input type="text" name="e1" size="1" maxlength="1" /></td>
+			        <td><input type="text" name="m1" size="1" maxlength="1" /></td>
+		        </tr>
+		        <tr>
+			        <td><input type="text" name="n2" size="4" maxlength="4"/></td>
+			        <td><input type="text" name="e2" size="1" maxlength="1"/></td>
+			        <td><input type="text" name="m2" size="1" maxlength="1"/></td>
+		        </tr>
+		        <tr>
+			        <td><input type="text" name="n3" size="4" maxlength="4"/></td>
+			        <td><input type="text" name="e3" size="1" maxlength="1"/></td>
+			        <td><input type="text" name="m3" size="1" maxlength="1"/></td>
+		        </tr>
+		        <tr>
+			        <td><input type="text" name="n4" size="4" maxlength="4"/></td>
+			        <td><input type="text" name="e4" size="1" maxlength="1"/></td>
+			        <td><input type="text" name="m4" size="1" maxlength="1"/></td>
+		        </tr>
+		        <tr>
+			        <td><input type="text" name="n5" size="4" maxlength="4"/></td>
+			        <td><input type="text" name="e5" size="1" maxlength="1"/></td>
+			        <td><input type="text" name="m5" size="1" maxlength="1"/></td>
+		        </tr>
+		        <tr>
+			        <td><input type="text" name="n6" size="4" maxlength="4"/></td>
+			        <td><input type="text" name="e6" size="1" maxlength="1"/></td>
+			        <td><input type="text" name="m6" size="1" maxlength="1"/></td>
+		        </tr>
+		        <tr>
+			        <td><input type="text" name="n7" size="4" maxlength="4"/></td>
+			        <td><input type="text" name="e7" size="1" maxlength="1"/></td>
+			        <td><input type="text" name="m7" size="1" maxlength="1"/></td>
+		        </tr>
+		        </table>
+		</td>
+
+		<td>
+		        <table cellpadding="2" cellspacing="0" border="0" align="center">
+		        <tr class="head"><td colspan="4">Entrer votre nombre</td></tr>
+		        <tr>
+			        <td><input type="text" name="Ss" size="1" maxlength="1" onkeypress="keyAnalyser()"/></td>
+			        <td><input type="text" name="Ss" size="1" maxlength="1" onkeypress="keyAnalyser()"/></td>
+			        <td><input type="text" name="Ss" size="1" maxlength="1" onkeypress="keyAnalyser()"/></td>
+			        <td><input type="text" name="Ss" size="1" maxlength="1" onkeypress="keyAnalyser()"/></td>
+		        </tr>
+		        <tr class="head"><td colspan="4">Nombre à trouver</td></tr>
+		        <tr><td colspan="4"><input class="in4" type="text" name="original" onFocus="blur()" size="4" maxlength="4" value="????"/></td></tr>
+		        <tr><td colspan="4">
+		                <ul id="links">
+		                <li><a type="button" name="guess" href="#" onClick="VerifSaisie()" value="check">Check</a></li>
+		                <li><a type="reset" name="new" href="#" onClick="NombreAléatoire()" value="reset">Nouveau</a></li>
+		                </ul>
+		        </td></tr>
+		        </table>
+		        
+		</td></tr>
+
+		</table>
+	</section>
+
+		<footer>
+			<p><img src="images/logo_dragon.jpg" class="imageflottante" alt="Image flottante" alt="Logo Dragon"></p>
+			<p class="float">Copyright Dragon Games Company - Tous droits réservés</p>
+			<p> 
+		</footer>
+		   
+	</body>
+</html>

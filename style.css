@@ -1,0 +1,65 @@
+@font-face{
+	font-family: 'NewtSerif';
+	src:url('newtserif/NewtSerif.otf');
+}
+
+h1{
+	font-family: 'NewtSerif';
+	color:#41c576;
+	text-align: center;
+	font-size: 300%;
+}
+
+#links{
+	font-family: 'NewtSerif';
+	color:#41c576;
+}
+
+.head{
+	font-family: 'NewtSerif';
+	color:black;
+}
+
+table{
+	padding: 3%;
+	border-radius: 40px 40px 40px 40px;
+	border-color: black;
+	background-color:#41c576;
+}
+
+body{
+	background-color: silver;
+}
+
+section{
+	margin-bottom: 5%;
+}
+
+header p{
+	display:inline-block;
+}
+
+.img2{
+	margin-left:600%;
+}
+
+.float{
+	padding:1%;
+	clear:right;
+}
+
+.imageflottante{
+	float:left;
+	width: 3%;
+	height: 3%;
+	margin-left:3%;
+}
+
+footer{
+	text-align: justify;
+	border: 2px solid #417740;
+	background-color: #1b1616;
+	margin:auto;
+	border-radius: 10px 10px 40px 40px;
+	color:#bb9f14;
+}
